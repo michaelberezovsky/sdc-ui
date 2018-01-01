@@ -18,10 +18,13 @@ export class TooltipDirective implements OnInit {
     @Input('tooltip-placement') public placement: TooltipPlacement = TooltipPlacement.Top;
     @Input('tooltip-css-class') public customCssClass: string;
     @Input('tooltip-template') public template: TemplateRef<any>;
-    @Input('tooltip-arrow-offset') public arrowOffset: number = 10;
+    @Input('tooltip-arrow-offset') public arrowOffset: number = 12;
     @Input('tooltip-arrow-placement') public arrowPlacement: ArrowPlacement = ArrowPlacement.LeftTop;
-    @Input('tooltip-offset') public tooltipOffset: number = 3;
-
+    @Input('tooltip-offset') public tooltipOffset: number = -1;
+    @Input('left-tooltip-offset') public leftTooltipOffset: number = 6;
+    @Input('right-tooltip-offset') public rightTooltipOffset: number = 6;
+    @Input('top-tooltip-offset') public topTooltipOffset: number = 3;
+    @Input('bottom-tooltip-offset') public bottomTooltipOffset: number = 6;
 
     private cssClass: string = 'sdc-tooltip'; // default css class
     private tooltip: any; // tooltip html element
@@ -34,6 +37,8 @@ export class TooltipDirective implements OnInit {
         private elementRef: ElementRef,
         private service: CreateDynamicComponentService,
         private renderer: Renderer) {
+
+        this.initTooltipOffset();
 
         this.elementRef.nativeElement.title = "";
     }
@@ -217,7 +222,10 @@ export class TooltipDirective implements OnInit {
             elemWidth: this.elementRef.nativeElement.offsetWidth,
             pageYOffset: window.pageYOffset,
             tooltipHeight: this.tooltip.offsetHeight, // .clientHeight,
-            tooltipOffset: this.tooltipOffset,
+            leftTooltipOffset: this.leftTooltipOffset,
+            rightTooltipOffset: this.rightTooltipOffset,
+            topTooltipOffset: this.topTooltipOffset,
+            bottomTooltipOffset: this.bottomTooltipOffset,
             tooltipWidth: this.tooltip.offsetWidth,
             arrowOffset: this.arrowOffset
         };
@@ -253,23 +261,23 @@ export class TooltipDirective implements OnInit {
         const inputPos: ITooltipPositionParams = this.getPlacementInputParams();
         switch (placement) {
             case TooltipPlacement.Left:
-                left = inputPos.elemLeft - inputPos.tooltipWidth - inputPos.tooltipOffset;
+                left = inputPos.elemLeft - inputPos.tooltipWidth - inputPos.leftTooltipOffset;
                 top = inputPos.elemTop + inputPos.pageYOffset + inputPos.elemHeight / 2 - inputPos.tooltipHeight / 2;
                 break;
 
             case TooltipPlacement.Right:
-                left = inputPos.elemLeft + inputPos.elemWidth + inputPos.tooltipOffset;
+                left = inputPos.elemLeft + inputPos.elemWidth + inputPos.rightTooltipOffset;
                 top = inputPos.elemTop + inputPos.pageYOffset + inputPos.elemHeight / 2 - inputPos.tooltipHeight / 2;
                 break;
 
             case TooltipPlacement.Top:
                 left = inputPos.elemLeft + inputPos.elemWidth / 2 - inputPos.tooltipWidth / 2;
-                top = inputPos.elemTop + inputPos.pageYOffset - inputPos.tooltipHeight - inputPos.tooltipOffset;
+                top = inputPos.elemTop + inputPos.pageYOffset - inputPos.tooltipHeight - inputPos.topTooltipOffset;
                 break;
 
             case TooltipPlacement.Bottom:
                 left = inputPos.elemLeft + inputPos.elemWidth / 2 - inputPos.tooltipWidth / 2;
-                top = inputPos.elemTop + inputPos.pageYOffset + inputPos.elemHeight + inputPos.tooltipOffset;
+                top = inputPos.elemTop + inputPos.pageYOffset + inputPos.elemHeight + inputPos.bottomTooltipOffset;
                 break;
         }
 
@@ -295,23 +303,23 @@ export class TooltipDirective implements OnInit {
         const inputPos: ITooltipPositionParams = this.getPlacementInputParams();
         switch (placement) {
             case TooltipPlacement.Left:
-                left = inputPos.elemLeft - inputPos.tooltipWidth - inputPos.tooltipOffset;
+                left = inputPos.elemLeft - inputPos.tooltipWidth - inputPos.leftTooltipOffset;
                 top = inputPos.elemTop + inputPos.pageYOffset + inputPos.elemHeight / 2 - inputPos.arrowOffset;
                 break;
 
             case TooltipPlacement.Right:
-                left = inputPos.elemLeft + inputPos.elemWidth + inputPos.tooltipOffset;
+                left = inputPos.elemLeft + inputPos.elemWidth + inputPos.rightTooltipOffset;
                 top = inputPos.elemTop + inputPos.pageYOffset + inputPos.elemHeight / 2 - inputPos.arrowOffset;
                 break;
 
             case TooltipPlacement.Top:
                 left = inputPos.elemLeft + inputPos.elemWidth / 2 - inputPos.arrowOffset;
-                top = inputPos.elemTop + inputPos.pageYOffset - inputPos.tooltipHeight - inputPos.tooltipOffset;
+                top = inputPos.elemTop + inputPos.pageYOffset - inputPos.tooltipHeight - inputPos.topTooltipOffset;
                 break;
 
             case TooltipPlacement.Bottom:
                 left = inputPos.elemLeft + inputPos.elemWidth / 2 - inputPos.arrowOffset;
-                top = inputPos.elemTop + inputPos.pageYOffset + inputPos.elemHeight + inputPos.tooltipOffset;
+                top = inputPos.elemTop + inputPos.pageYOffset + inputPos.elemHeight + inputPos.bottomTooltipOffset;
                 break;
         }
 
@@ -337,23 +345,23 @@ export class TooltipDirective implements OnInit {
         const inputPos: ITooltipPositionParams = this.getPlacementInputParams();
         switch (placement) {
             case TooltipPlacement.Left:
-                left = inputPos.elemLeft - inputPos.tooltipWidth - inputPos.tooltipOffset;
+                left = inputPos.elemLeft - inputPos.tooltipWidth - inputPos.leftTooltipOffset;
                 top = inputPos.elemTop + inputPos.pageYOffset + inputPos.elemHeight / 2 - inputPos.tooltipHeight + inputPos.arrowOffset;
                 break;
 
             case TooltipPlacement.Right:
-                left = inputPos.elemLeft + inputPos.elemWidth + inputPos.tooltipOffset;
+                left = inputPos.elemLeft + inputPos.elemWidth + inputPos.rightTooltipOffset;
                 top = inputPos.elemTop + inputPos.pageYOffset + inputPos.elemHeight / 2 - inputPos.tooltipHeight + inputPos.arrowOffset;
                 break;
 
             case TooltipPlacement.Top:
                 left = inputPos.elemLeft + inputPos.elemWidth / 2 - inputPos.tooltipWidth + inputPos.arrowOffset;
-                top = inputPos.elemTop + inputPos.pageYOffset - inputPos.tooltipHeight - inputPos.tooltipOffset;
+                top = inputPos.elemTop + inputPos.pageYOffset - inputPos.tooltipHeight - inputPos.topTooltipOffset;
                 break;
 
             case TooltipPlacement.Bottom:
                 left = inputPos.elemLeft + inputPos.elemWidth / 2 - inputPos.tooltipWidth + inputPos.arrowOffset;
-                top = inputPos.elemTop + inputPos.pageYOffset + inputPos.elemHeight + inputPos.tooltipOffset;
+                top = inputPos.elemTop + inputPos.pageYOffset + inputPos.elemHeight + inputPos.bottomTooltipOffset;
                 break;
         }
 
@@ -382,6 +390,18 @@ export class TooltipDirective implements OnInit {
         }
 
         return true;
+    }
+
+    /**
+     *  Tooltip offset
+     */
+    private initTooltipOffset() {
+        if (this.tooltipOffset >= 0) {
+           this.leftTooltipOffset =
+               this.rightTooltipOffset =
+                   this.topTooltipOffset =
+                       this.bottomTooltipOffset = this.tooltipOffset;
+        }
     }
 
     /**
@@ -414,11 +434,11 @@ export class TooltipDirective implements OnInit {
     }
 
     private activateScrollEvent() {
-        window.addEventListener('scroll',this.scrollEventHandler , true);
+        window.addEventListener('scroll', this.scrollEventHandler, true);
     }
 
     private deactivateScrollEvent() {
-        window.removeEventListener('scroll',this.scrollEventHandler , true);
+        window.removeEventListener('scroll', this.scrollEventHandler, true);
     }
 }
 
@@ -442,7 +462,10 @@ interface ITooltipPositionParams {
     elemHeight: number;
     tooltipWidth: number;
     tooltipHeight: number;
-    tooltipOffset: number;
+    leftTooltipOffset: number;
+    rightTooltipOffset: number;
+    topTooltipOffset: number;
+    bottomTooltipOffset: number;
     pageYOffset: number;
     arrowOffset: number;
 }

@@ -14,20 +14,18 @@ export default experimentOn('Tooltip')
             },
             template: `
                 <div style="padding-bottom: 20px; width: 350px;">Lorem ipsum dolor sit amet,  
-                    <span  style="color: #009fdb"
+                    <span  style="color: #009fdb;"
                         sdc-tooltip 
                             tooltip-text = 'A short text name, short text'
                             [tooltip-placement]= 'placement'
-                            [tooltip-arrow-placement] = 'arrowPlacement'>show tooltip
-                    </span> 
-                    ,consectetur adipiscing elit. Sed risus nisl, egestas vitae erat non, pulvinar lacinia libero. 
+                            [tooltip-arrow-placement] = 'arrowPlacement'>show tooltip</span>, consectetur adipiscing elit.
+                            Sed risus nisl, egestas vitae erat non, pulvinar lacinia libero. 
                     Integer pulvinar pellentesque accumsan. 
-                    <span  style="color: #009fdb"
+                    <span  style="color: #009fdb;"
                         sdc-tooltip 
                             tooltip-text = 'A short text name, short text'
                             [tooltip-placement]= 'placement'
-                            [tooltip-arrow-placement] = 'arrowPlacement'>show tooltip
-                    </span> 
+                            [tooltip-arrow-placement] = 'arrowPlacement'>show tooltip</span> 
                     Sed hendrerit lacus eu tempus pharetra
                 </div>
                 `
@@ -44,13 +42,11 @@ export default experimentOn('Tooltip')
             template: `
                 <div style="padding-bottom: 20px;">
                     The is text example,
-                    <span  style="color: #009fdb"
+                    <span  style="color: #009fdb;"
                         sdc-tooltip 
                             tooltip-text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed risus nisl, egestas vitae erat non, pulvinar lacinia libero. Integer pulvinar pellentesque accumsan. Sed hendrerit lacus eu tempus pharetra'
                             [tooltip-placement]= 'placement'
-                            [tooltip-arrow-placement] = 'arrowPlacement'>show tooltip
-                    </span> 
-                    , more text
+                            [tooltip-arrow-placement] = 'arrowPlacement'>show tooltip</span>, more text
                 </div>                                    
                 `
         },
@@ -66,14 +62,12 @@ export default experimentOn('Tooltip')
             template: `
                 <div style="padding-bottom: 20px;">
                     The is text example,
-                    <span  style="color: #009fdb"
+                    <span  style="color: #009fdb;"
                         sdc-tooltip 
                             tooltip-text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed risus nisl, egestas vitae erat non, pulvinar lacinia libero. Integer pulvinar pellentesque accumsan. Sed hendrerit lacus eu tempus pharetra'
                             [tooltip-placement]= 'placement'
                             tooltip-css-class = 'sdc-custom-tooltip'
-                            [tooltip-arrow-placement] = 'arrowPlacement'>show tooltip
-                    </span> 
-                    , more text
+                            [tooltip-arrow-placement] = 'arrowPlacement'>show tooltip</span>, more text
                 </div>                                    
                 `
         },
@@ -95,14 +89,12 @@ export default experimentOn('Tooltip')
         
                 <div style="padding-bottom: 20px;">
                     The is text example,
-                    <span  style="color: #009fdb"
+                    <span  style="color: #009fdb;"
                         sdc-tooltip 
                             tooltip-text = 'This is the tooltip test'
                             [tooltip-placement]= 'placement'
                             [tooltip-arrow-placement] = 'arrowPlacement'
-                            [tooltip-template]='template'>show tooltip
-                    </span>
-                    , more text
+                            [tooltip-template]='template'>show tooltip</span>, more text
                 </div>                                    
 
                 <template #template>
@@ -129,15 +121,13 @@ export default experimentOn('Tooltip')
 
                 <div style="padding-bottom: 20px;">
                     The is text example,
-                    <span  style="color: #009fdb"
+                    <span  style="color: #009fdb;"
                         sdc-tooltip 
                             tooltip-text = 'This is the tooltip test'
                             [tooltip-placement]= 'placement'
                             tooltip-css-class = 'sdc-custom-tooltip'
                             [tooltip-arrow-placement] = 'arrowPlacement'
-                            [tooltip-template]='template'>show tooltip
-                    </span>
-                    , more text
+                            [tooltip-template]='template'>show tooltip</span>, more text
                 </div>                                    
                                             
                 <template #template>
@@ -158,13 +148,11 @@ export default experimentOn('Tooltip')
             template: `
                 <div style="padding-bottom: 20px;">
                     The is text example,
-                    <span  style="color: #009fdb"
+                    <span  style="color: #009fdb;"
                         sdc-tooltip 
                             tooltip-text = 'A long text name, very long, long text'
                             [tooltip-placement]= 'placement'
-                            [tooltip-arrow-placement] = 'arrowPlacement'>show tooltip
-                    </span>
-                    , more text
+                            [tooltip-arrow-placement] = 'arrowPlacement'>tooltip hhhhhhhhhhh</span>, more text
                 </div>                                    
                 `
         },
@@ -186,13 +174,12 @@ export default experimentOn('Tooltip')
         
                 <div style="width:30%; height: 30px; text-align: center;">
                     The is text example,
-                    <a style="color: #009fdb; font-size: small; cursor: pointer;"
+                    <span  style="color: #009fdb;"
                         sdc-tooltip
                             tooltip-text = 'This is the tooltip test'
                             [tooltip-placement]= 'placement'
                             [tooltip-arrow-placement] = 'arrowPlacement'
-                            [tooltip-template]='template' >link example</a>
-                    , more text
+                            [tooltip-template]='template' >tooltip ppppppppppp</span>, more text
                 </div>
                 <template #template>
                     <p class="sdc-tooltip-template-title">A long text name,</p>

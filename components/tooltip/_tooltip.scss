@@ -43,13 +43,13 @@
 
 .sdc-tooltip-top::after {
     top: 100%;
-    left: 10px;
-    margin-left: -5px;
-    border-width: 5px;
+    left: 12px;
+    margin-left: -6px;
+    border-width: 6px;
     border-color: $rich-black transparent transparent transparent;
 }
 .sdc-tooltip-top-right__bottom::after {
-    right: 10px;
+    right: 12px;
     left:auto;
 }
 .sdc-tooltip-top-center__middle::after {
@@ -58,13 +58,13 @@
 
 .sdc-tooltip-bottom::after {
     bottom: 100%;
-    left: 10px;
-    margin-left: -5px;
-    border-width: 5px;
+    left: 12px;
+    margin-left: -6px;
+    border-width: 6px;
     border-color: transparent transparent $rich-black transparent;
 }
 .sdc-tooltip-bottom-right__bottom::after {
-    right: 10px;
+    right: 12px;
     left:auto;
 }
 .sdc-tooltip-bottom-center__middle::after {
@@ -72,14 +72,14 @@
 }
 
 .sdc-tooltip-left::after {
-    top: 10px; /*50%;*/
+    top: 12px;
     left: 100%;
-    margin-top: -5px;
-    border-width: 5px;
+    margin-top: -6px;
+    border-width: 6px;
     border-color: transparent transparent transparent $rich-black;
 }
 .sdc-tooltip-left-right__bottom::after {
-    bottom: 10px;
+    bottom: 12px;
     top: auto;
 }
 .sdc-tooltip-left-center__middle::after {
@@ -87,14 +87,14 @@
 }
 
 .sdc-tooltip-right::after {
-    top: 10px;
+    top: 12px;
     right: 100%;
-    margin-top: -5px;
-    border-width: 5px;
+    margin-top: -6px;
+    border-width: 6px;
     border-color: transparent $rich-black transparent transparent;
 }
 .sdc-tooltip-right-right__bottom::after {
-    bottom: 10px;
+    bottom: 12px;
     top: auto;
 }
 .sdc-tooltip-right-center__middle::after {
